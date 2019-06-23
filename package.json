@@ -2,7 +2,7 @@
   "name": "galeri",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://galericms.github.io/galeri",
+  "homepage": "https://galericms.github.io",
   "dependencies": {
     "@toast-ui/react-editor": "^1.0.0",
     "antd": "^3.18.2",

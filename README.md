@@ -2,6 +2,11 @@
 
 > For architecture, see `architecture.md`
 
+> Note that the "master" branch is now "dev"
+
+This is the frontend for galeri
+
+
 ## TODO
 - Pick a UI framework
   - ~~[ ] Grommet~~
@@ -13,21 +18,21 @@
   - [x] Rename components & create convention
   - [ ] Create needed routes/pages/components
     - [x] Home
-    - [z] CardView
-    - [z] DetailView
+    - [x] CardView
+    - [x] DetailView
     - [x] About
-    - [ ] SignUp
-    - [ ] Login
-    - [ ] Project Create
-    - [ ] Project View
+    - [x] SignUp
+    - [x] Login
+    - [x] Project Create
+    - [x] Project View
     - [ ] User Profile
     - [ ] ...
 - [ ] Make responsive
-  - [ ] Header
+  - [x] Header
   - [x] Home
-  - [ ] Footer
+  - [x] Footer
   - [ ] User Profile
-  - [ ] Project
+  - [x] Project
 - [ ] Come up with Logo / color scheme
 
 ## Install

@@ -49,7 +49,7 @@ const Header = props => {
                         <Button variant="outline-light">Search</Button>
                     </Form>
                     <LinkContainer to="/project/create">
-                        <Nav.Link>Create a new Project</Nav.Link>
+                        <Nav.Link>New Project</Nav.Link>
                     </LinkContainer>
                     <LinkContainer to="/login">
                         <Nav.Link>Login</Nav.Link>

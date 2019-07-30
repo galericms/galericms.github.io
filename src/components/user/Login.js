@@ -25,7 +25,7 @@ const Login = () => {
     };
 
     return (
-        <div>
+        <div className="small-form">
             <h1 className="text-center">Login below:</h1>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>

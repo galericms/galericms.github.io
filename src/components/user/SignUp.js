@@ -36,7 +36,7 @@ const SignUp = () => {
     };
 
     return (
-        <div>
+        <div className="small-form">
             <h1 className="text-center">Register Below</h1>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>

@@ -2,7 +2,7 @@
 
 > For architecture, see `architecture.md`
 
-> Note that the "master" branch is now "dev"
+> Note that the "master" branch is now "dev", and the "master" branch is the deployed site.
 
 This is the frontend for galeri
 

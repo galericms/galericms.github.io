@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "3f3646c23a93b0585b33",
-    "url": "/static/css/main.9b0460b7.chunk.css"
+    "revision": "f8d5e8ea5f60d5fe7f22",
+    "url": "/static/css/main.2f85782e.chunk.css"
   },
   {
-    "revision": "3f3646c23a93b0585b33",
-    "url": "/static/js/main.916014d5.chunk.js"
+    "revision": "f8d5e8ea5f60d5fe7f22",
+    "url": "/static/js/main.e0fb6876.chunk.js"
   },
   {
     "revision": "42ac5946195a7306e2a5",
@@ -28,7 +28,7 @@ self.__precacheManifest = [
     "url": "/static/media/tui-editor-2x.b4361244.png"
   },
   {
-    "revision": "19493d9ae5485198581fb7e38bca2e0e",
+    "revision": "d9b79046cae979c8447abf6d7f5bb7c9",
     "url": "/index.html"
   }
 ];

@@ -1,0 +1,151 @@
+{
+    "projects": [
+        {
+            "id": 1,
+            "title": "Foo bar",
+            "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "creator": {
+                "id": 1,
+                "first": "Bob",
+                "last": "Smith",
+                "username": "bobby123",
+                "email": "bsmith@test.com",
+                "url": "/users/1"
+            },
+            "content": "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*\n\nEst adipisicing commodo id sit esse in ea consequat consequat qui consectetur amet qui.\n\nPariatur cillum et fugiat do sit exercitation incididunt adipisicing amet ex Lorem qui consectetur amet.",
+            "tags": [
+                {
+                    "id": 1,
+                    "text": "software",
+                    "url": "/tags/1"
+                },
+                {
+                    "id": 2,
+                    "text": "hardware",
+                    "url": "/tags/2"
+                }
+            ],
+            "collaborators": [
+                {
+                    "id": 1,
+                    "first": "Bob",
+                    "last": "Smith",
+                    "username": "bobby123",
+                    "email": "bsmith@test.com",
+                    "url": "/users/1"
+                },
+                {
+                    "id": 2,
+                    "first": "Tom",
+                    "last": "Selic",
+                    "username": "tcell",
+                    "email": "tselic@test.com",
+                    "url": "/users/2"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Test title 2",
+            "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "creator": {
+                "id": 2,
+                "first": "Tom",
+                "last": "Selic",
+                "username": "tcell",
+                "email": "tselic@test.com"
+            },
+            "content": "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*\n\nEst adipisicing commodo id sit esse in ea consequat consequat qui consectetur amet qui.\n\nPariatur cillum et fugiat do sit exercitation incididunt adipisicing amet ex Lorem qui consectetur amet.",
+            "tags": [
+                {
+                    "id": 1,
+                    "text": "software",
+                    "url": "/tags/1"
+                }
+            ],
+            "collaborators": [
+                {
+                    "id": 2,
+                    "first": "Tom",
+                    "last": "Selic",
+                    "username": "tcell",
+                    "email": "tselic@test.com",
+                    "url": "/users/2"
+                }
+            ]
+        }
+    ],
+    "users": [
+        {
+            "id": 1,
+            "first": "Bob",
+            "last": "Smith",
+            "username": "bobby123",
+            "email": "bsmith@test.com",
+            "bio": "Hi, I'm just a normal guy named Bob, I'm super fun I swear...",
+            "projects": [
+                {
+                    "id": 2,
+                    "title": "Test title 2",
+                    "url": "/projects/2"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "first": "Tom",
+            "last": "Selic",
+            "username": "tcell",
+            "email": "tselic@test.com",
+            "bio": "Hi, I'm just a normal guy named Tommy, I'm super fun I swear...",
+            "projects": [
+                {
+                    "id": 1,
+                    "title": "Foo bar",
+                    "url": "/projects/1"
+                },
+                {
+                    "id": 2,
+                    "title": "Test title 2",
+                    "url": "/projects/2"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "first": "Aaron",
+            "last": "Shmang",
+            "username": "ash",
+            "email": "ash@test.com",
+            "bio": "Hi, I'm just a normal guy named Seb, I'm super fun I swear...",
+            "projects": []
+        },
+        {
+            "id": 4,
+            "first": "Seb",
+            "last": "Spafari",
+            "username": "spa",
+            "email": "spa@test.com",
+            "bio": "Hi, I'm just a normal guy named Seb, I'm super fun I swear...",
+            "projects": []
+        }
+    ],
+    "tags": [
+        {
+            "id": 1,
+            "text": "software"
+        },
+        {
+            "id": 2,
+            "text": "hardware"
+        },
+        {
+            "id": 3,
+            "text": "machine learning"
+        },
+        {
+            "id": 4,
+            "text": "AI"
+        }
+    ]
+}

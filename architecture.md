@@ -37,7 +37,7 @@
 See `../wireframes/GaleriSite.xcf`
 
 ## Create / Compare API spec
-- REST api specification
+- REST api specification for testing is in `schema.json` - use typicode/json-server for testing
 - GET's:
   - `/projects`
     - Get list of all project objs

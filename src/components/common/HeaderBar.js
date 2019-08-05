@@ -6,6 +6,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 
 const Header = props => {
+    const [searchText, setSearchText] = useState("");
     // eslint-disable-next-line
     const [userName, setUserName] = useState("Profile");
     // eslint-disable-next-line
@@ -17,6 +18,10 @@ const Header = props => {
 
     // eslint-disable-next-line
     const profileURL = `/profile/${userID}`;
+
+    const handleChange = e => {
+        setSearchText(e.target.value);
+    };
 
     return (
         <Navbar
@@ -40,13 +45,22 @@ const Header = props => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="ml-auto" activeKey={props.location.pathname}>
-                    <Form inline>
+                    <Form
+                        inline
+                        onSubmit={e => {
+                            e.preventDefault();
+                            props.searchFunc(searchText);
+                        }}
+                    >
                         <FormControl
                             type="text"
                             placeholder="Search Tags"
                             className="mr-sm-2"
+                            onChange={handleChange}
                         />
-                        <Button variant="outline-light">Search</Button>
+                        <Button type="submit" variant="outline-light">
+                            Search
+                        </Button>
                     </Form>
                     <LinkContainer to="/project/create">
                         <Nav.Link>New Project</Nav.Link>

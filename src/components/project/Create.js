@@ -22,15 +22,6 @@ const CreateProject = props => {
         content: ""
     });
 
-    // TODO: Use react-bootstrap-typeahead for autofill / dropdown
-    // http://ericgio.github.io/react-bootstrap-typeahead/#controlling-selections
-    // const allTags = ["software", "hardware", "math", "science", "laser"];
-    // const allCollaborators = [
-    //     "bsmith@example.com",
-    //     "tom@example.com",
-    //     "johhny@rockets.net"
-    // ];
-
     const uploadImage = (blob, callback) => {
         // Imgur client ID: 41f5c8b3bfcd69e
 
@@ -42,11 +33,11 @@ const CreateProject = props => {
             },
             body: blob
         })
-            .then(response => response.json())
-            .then(response => {
-                // console.log(response);
-                // console.log(response.data.link);
-                callback(response.data.link);
+            .then(resp => resp.json())
+            .then(resp => {
+                // console.log(resp);
+                // console.log(resp.data.link);
+                callback(resp.data.link);
             });
     };
 

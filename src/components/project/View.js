@@ -2,68 +2,71 @@ import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router";
 import { markdown } from "markdown";
 
-import { getSampleProject } from "../../ProjectService";
+import { getProject } from "../../ProjectService";
 
 import { Button } from "react-bootstrap";
 
 // TODO: If one of the collaborators is logged in user,
 //   add "Edit" button
 const ProjectView = props => {
-    const [currentProject, setCurrentProject] = useState({});
+    const [currentProject, setCurrentProject] = useState(null);
     const [errMsg, setErrMsg] = useState();
     // eslint-disable-next-line
     const [loggedInUser, setLoggedInUser] = useState("bobby123");
 
-
     useEffect(() => {
-        getSampleProject(props.match.params.id).then(
-            response => {
-                setCurrentProject(response);
+        getProject(props.match.params.id).then(
+            resp => {
+                setCurrentProject(resp);
             },
             err => {
                 console.error(err.message);
                 setErrMsg(err.message);
             }
         );
-    });
+    }, []);
 
     return (
         <>
-            <div className="clearfix mb-3" />
+            {currentProject && (
+                <>
+                    <div className="clearfix mb-3" />
 
-            <div style={{ color: "red" }}>{errMsg}</div>
+                    <div style={{ color: "red" }}>{errMsg}</div>
 
-            <div style={{ float: "right" }}>
-                {currentProject.creator === loggedInUser ? (
-                    <Button
-                        onClick={() =>
-                            props.history.push(
-                                `/projects/${currentProject.id}/edit`
-                            )
-                        }
+                    <div style={{ float: "right" }}>
+                        {currentProject.creator.username === loggedInUser ? (
+                            <Button
+                                onClick={() =>
+                                    props.history.push(
+                                        `/projects/${currentProject.id}/edit`
+                                    )
+                                }
+                            >
+                                {currentProject.creator.username} - Edit
+                            </Button>
+                        ) : null}
+                    </div>
+                    <div
+                        className="text-center"
+                        style={{ textDecoration: "underline" }}
                     >
-                        {currentProject.creator} - Edit
-                    </Button>
-                ) : null}
-            </div>
-            <div
-                className="text-center"
-                style={{ textDecoration: "underline" }}
-            >
-                <h1>{currentProject.title}</h1>
-            </div>
-            <div className="clearfix" />
+                        <h1>{currentProject.title}</h1>
+                    </div>
+                    <div className="clearfix" />
 
-            <h4>{currentProject.summary}</h4>
-            <hr />
-            {currentProject.content ? (
-                <div
-                    dangerouslySetInnerHTML={{
-                        __html: markdown.toHTML(currentProject.content)
-                    }}
-                />
-            ) : (
-                <div />
+                    <h4>{currentProject.summary}</h4>
+                    <hr />
+                    {currentProject.content ? (
+                        <div
+                            dangerouslySetInnerHTML={{
+                                __html: markdown.toHTML(currentProject.content)
+                            }}
+                        />
+                    ) : (
+                        <div />
+                    )}
+                </>
             )}
         </>
     );

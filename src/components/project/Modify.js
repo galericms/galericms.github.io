@@ -14,7 +14,7 @@ import "tui-editor/dist/tui-editor.min.css";
 import "tui-editor/dist/tui-editor-contents.min.css";
 import { Editor } from "@toast-ui/react-editor";
 
-import { getSampleProject } from "../../ProjectService";
+import { getProject } from "../../ProjectService";
 
 const ModifyProject = props => {
     const [project, setProject] = useState({
@@ -30,7 +30,7 @@ const ModifyProject = props => {
 
     useEffect(() => {
         let isSubscribed = true;
-        getSampleProject(props.match.params.id)
+        getProject(props.match.params.id)
             .then(resp => {
                 if (isSubscribed) {
                     // console.log(resp);
@@ -59,11 +59,11 @@ const ModifyProject = props => {
             },
             body: blob
         })
-            .then(response => response.json())
-            .then(response => {
-                // console.log(response);
-                // console.log(response.data.link);
-                callback(response.data.link);
+            .then(resp => resp.json())
+            .then(resp => {
+                // console.log(resp);
+                // console.log(resp.data.link);
+                callback(resp.data.link);
             });
     };
 

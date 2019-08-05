@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./index.scss";
 
@@ -15,76 +15,67 @@ import ProjectView from "./components/project/View";
 import ProjectCreate from "./components/project/Create";
 import ProjectModify from "./components/project/Modify";
 
-import { getSampleProjects } from "./ProjectService";
+import { getProjects, queryProjects } from "./ProjectService";
 
 import { Container } from "react-bootstrap";
 
-class App extends Component {
-    constructor(props) {
-        super(props);
+const App = () => {
+    const [projects, setProjects] = useState(null);
+    const title = "Galeri";
 
-        this.state = {
-            title: "Galeri",
-            projects: []
-        };
-    }
+    useEffect(() => {
+        let isSubbed = true;
+        getProjects().then(resp => {
+            if (isSubbed) {
+                console.log(resp);
+                setProjects(resp);
+            }
+        });
 
-    componentDidMount() {
-        getSampleProjects().then(
-            response => {
-                this.setState({ projects: response });
-            },
-            err => console.error(err.message)
-        );
-    }
+        return () => (isSubbed = false);
+    }, []);
 
-    doSearch = query => {
-        window.alert("You searched: " + query);
+    const doSearch = query => {
+        queryProjects(query)
+            .then(resp => {
+                console.log(resp);
+                setProjects(resp);
+            })
+            .catch(err => console.error(err));
     };
 
-    render() {
-        return (
-            <Router basename={process.env.PUBLIC_URL}>
-                <Header
-                    title={this.state.title}
-                    searchFunc={q => this.doSearch(q)}
-                />
-                <Container>
-                    <Switch>
-                        <Route
-                            path="/"
-                            exact
-                            render={props => (
-                                <Home projects={this.state.projects} />
-                            )}
-                        />
-                        <Route path="/about" component={About} />
-                        <Route path="/contact" component={Contact} />
+    return (
+        <Router basename={process.env.PUBLIC_URL}>
+            <Header title={title} searchFunc={q => doSearch(q)} />
+            <Container>
+                <Switch>
+                    <Route
+                        path="/"
+                        exact
+                        render={() => <Home projects={projects} />}
+                    />
+                    <Route path="/about" component={About} />
+                    <Route path="/contact" component={Contact} />
 
-                        <Route path="/signup" component={SignUp} />
-                        <Route path="/login" component={Login} />
-                        <Route path="/profile/:id" component={Profile} />
+                    <Route path="/signup" component={SignUp} />
+                    <Route path="/login" component={Login} />
+                    <Route path="/profile/:id" component={Profile} />
 
-                        <Route
-                            path="/project/create"
-                            component={props => <ProjectCreate {...props} />}
-                        />
-                        <Route
-                            path="/projects/:id/edit"
-                            component={props => <ProjectModify {...props} />}
-                        />
-                        <Route
-                            exact
-                            path="/projects/:id"
-                            component={ProjectView}
-                        />
-                    </Switch>
-                    <Footer />
-                </Container>
-            </Router>
-        );
-    }
-}
+                    <Route
+                        path="/project/create"
+                        component={props => <ProjectCreate {...props} />}
+                    />
+                    <Route
+                        path="/projects/:id/edit"
+                        component={props => <ProjectModify {...props} />}
+                    />
+                    <Route exact path="/projects/:id" component={ProjectView} />
+                </Switch>
+                <Footer />
+            </Container>
+        </Router>
+    );
+};
 
 export default App;
 ReactDOM.render(<App />, document.getElementById("root"));

@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 
-import { getSampleUser } from "../../UserService";
+import { getUser } from "../../UserService";
 
 const Profile = ({ match }) => {
     const [currentUser, setCurrentUser] = useState({});
 
     useEffect(() => {
-        getSampleUser(match.params.id).then(
-            response => {
-                setCurrentUser(response);
+        getUser(match.params.id).then(
+            resp => {
+                setCurrentUser(resp);
             },
             err => console.error(err.message)
         );
-    });
+    }, []);
 
     return (
         <div>

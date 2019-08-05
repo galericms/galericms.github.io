@@ -25,7 +25,7 @@ const CardView = props => {
                         <Card.Text>{project.summary}</Card.Text>
                     </Card.Body>
                     <Card.Footer className="text-muted">
-                        - {project.creator}
+                        - {project.creator.first} {project.creator.last}
                     </Card.Footer>
                 </Card>
             </Col>
